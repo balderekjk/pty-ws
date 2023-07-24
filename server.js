@@ -1,12 +1,12 @@
 const WebSocket = require("ws");
-var os = require("os");
+// var os = require("os");
 var pty = require("node-pty");
 
 const wss = new WebSocket.Server({ port: 3050 });
 
 console.log("Socket is up and running...");
 
-var shell = os.platform() === "bash";
+var shell = "bash";
 var ptyProcess = pty.spawn(shell, [], {
   name: "xterm-color",
   cwd: process.env.HOME,
