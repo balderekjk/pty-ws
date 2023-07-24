@@ -2,7 +2,7 @@ const WebSocket = require("ws");
 var os = require("os");
 var pty = require("node-pty");
 
-const wss = new WebSocket.Server({ port: 3050 });
+const wss = new WebSocket.Server({ port: 8000 });
 
 console.log("Socket is up and running...");
 
