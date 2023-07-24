@@ -6,7 +6,7 @@ const wss = new WebSocket.Server({ port: 3050 });
 
 console.log("Socket is up and running...");
 
-var shell = "bash";
+var shell = "/bin/bash";
 var ptyProcess = pty.spawn(shell, [], {
   name: "xterm-color",
   cwd: process.env.HOME,
