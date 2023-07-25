@@ -14,8 +14,10 @@ var ptyProcess = pty.spawn(shell, [], {
 wss.on("connection", (ws) => {
   const username = os.userInfo().username;
   const hostname = os.hostname();
+  const cwd = process.cwd();
+  const basePath = cwd.substring(cwd.lastIndexOf("/") + 1);
 
-  ws.send(`[${username}@${hostname} ${path.basename(process.cwd())}]$`);
+  ws.send(`[${username}@${hostname} ${basePath}]$`);
 
   ws.on("message", (command) => {
     ptyProcess.write(command);
