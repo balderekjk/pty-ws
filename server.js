@@ -2,7 +2,7 @@ const WebSocket = require("ws");
 var os = require("os");
 var pty = require("node-pty");
 
-const wss = new WebSocket.Server({ port: 8000 });
+const wss = new WebSocket.Server({ port: 3000 });
 
 var shell = os.platform() === "win32" ? "powershell.exe" : "bash";
 var ptyProcess = pty.spawn(shell, [], {
