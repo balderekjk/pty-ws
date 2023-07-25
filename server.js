@@ -15,9 +15,9 @@ var ptyProcess = pty.spawn(shell, [], {
 });
 wss.on("connection", (ws) => {
   console.log("new session");
-  ws.on("message", (command) => {
-    ptyProcess.write(command);
-  });
+  //   ws.on("message", (command) => {
+  //     ptyProcess.write(command);
+  //   });
 
   ptyProcess.on("data", function (data) {
     ws.send(data);
