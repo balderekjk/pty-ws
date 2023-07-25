@@ -18,9 +18,8 @@ wss.on("connection", (ws) => {
   ws.on("message", (command) => {
     ptyProcess.write(command);
   });
-
-  ptyProcess.on("data", function (data) {
-    ws.send(data);
-    console.log(data);
-  });
+});
+ptyProcess.on("data", function (data) {
+  ws.send(data);
+  console.log(data);
 });
