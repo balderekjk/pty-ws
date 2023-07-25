@@ -17,7 +17,7 @@ wss.on("connection", (ws) => {
   const cwd = process.cwd();
   const basePath = cwd.substring(cwd.lastIndexOf("/") + 1);
 
-  ws.send(`[${username}@${hostname} ${basePath}]$`);
+  ws.send(`[${username}@${hostname} ${basePath}]$ `);
 
   ws.on("message", (command) => {
     ptyProcess.write(command);
