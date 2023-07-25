@@ -12,7 +12,7 @@ var ptyProcess = pty.spawn(shell, [], {
   echo: false,
 });
 wss.on("connection", (ws) => {
-  ws.send(`Successfully connected to ${shell} \n`);
+  ws.send(`Successfully connected to ${shell}`);
   ws.on("message", (command) => {
     ptyProcess.write(command);
   });
