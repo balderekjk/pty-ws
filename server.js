@@ -11,6 +11,7 @@ var ptyProcess = pty.spawn(shell, [], {
   name: "xterm-color",
   cwd: process.env.HOME,
   env: process.env,
+  echo: false,
 });
 wss.on("connection", (ws) => {
   console.log("new session");
