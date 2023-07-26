@@ -11,6 +11,7 @@ var ptyProcess = pty.spawn(shell, [], {
   env: process.env,
   echo: false,
 });
+
 wss.on("connection", (ws) => {
   const username = os.userInfo().username;
   const hostname = os.hostname();
@@ -20,8 +21,6 @@ wss.on("connection", (ws) => {
   ws.on("message", (command) => {
     ptyProcess.write(command);
   });
-
-  ws.on("close", () => wss.close());
 
   ptyProcess.on("data", function (data) {
     ws.send(data);
