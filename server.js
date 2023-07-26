@@ -19,8 +19,6 @@ wss.on("connection", (ws) => {
   ws.send(`[${username}@${hostname} ~]$ `);
 
   ws.on("message", (command) => {
-    console.log(wss.clients);
-
     ptyProcess.write(command);
   });
 
