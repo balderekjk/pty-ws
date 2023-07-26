@@ -22,6 +22,8 @@ wss.on("connection", (ws) => {
     ptyProcess.write(command);
   });
 
+  ws.on("close", () => console.log(wss));
+
   ptyProcess.on("data", function (data) {
     ws.send(data);
     console.log(data);
